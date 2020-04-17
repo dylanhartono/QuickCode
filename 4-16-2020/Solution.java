@@ -1,8 +1,68 @@
 public class NestingDepth {
 
     public static String solve(String digits) {
-        // Solve answer here :)
-        return new String();
+        // Solution 1
+        String sol = "";
+        int depth = 0;
+        for(int i = 0; i < digits.length(); i++) {
+            int n = digits.charAt(i) - '0';
+            while(n > depth) {
+                sol += "(";
+                depth++;
+            }
+            while(n < depth) {
+                sol += ")";
+                depth--;
+            }
+            sol += n;
+        }
+        for(int i = 0; i < depth; i++) {
+            sol += ")";
+        }
+        return sol;
+
+        // Solution 2
+        String sol = "";
+        for(int i = 0; i < digits.length(); i++) {
+            int n = digits.charAt(i) - '0';
+            for(int j = 0; j < n; j++) {
+                sol += "(";
+            }
+            sol += n;
+            for(int j = 0; j < n; j++) {
+                sol += ")";
+            }
+        }
+        while(sol.contains(")(")) {
+            sol = sol.replace(")(", "");
+        }
+        return sol;
+
+        // Solution 3
+        // create the string
+        int max = 0;
+        String sol = "";
+        for(int i = 0; i < digits.length(); i++) {
+            int n = Character.getNumericValue(digits.charAt(i));
+            max = Math.max(max, n);
+            for(int j = 0; j < n; j++) {
+                sol += "(";
+            }
+            sol += n;
+            for(int j = 0; j < n; j++) {
+                sol += ")";
+            }
+        }
+
+        // filter the string
+        for(int j = 0; j < max; j++) {
+            for(int i = 1; i < sol.length(); i++) {
+                if(sol.substring(i - 1, i + 1).equals(")(")) {
+                    sol = sol.substring(0, i - 1) + sol.substring(i + 1);
+                }
+            }
+        }
+        return sol;
     }
 
     public static void main(String[] args) {
