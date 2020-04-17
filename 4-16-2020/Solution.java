@@ -1,4 +1,4 @@
-public class NestingDepth {
+public class Solution {
 
     public static String solve(String digits) {
         // Solution 1
