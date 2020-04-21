@@ -20,7 +20,9 @@ public class Solution {
             sol += ")";
         }
         return sol;
-
+    }
+    
+    public static String solve2(String digits) {
         // Solution 2
         String sol = "";
         for(int i = 0; i < digits.length(); i++) {
@@ -37,7 +39,9 @@ public class Solution {
             sol = sol.replace(")(", "");
         }
         return sol;
+    }
 
+    public static String solve3(String digits) {
         // Solution 3
         // create the string
         int max = 0;
