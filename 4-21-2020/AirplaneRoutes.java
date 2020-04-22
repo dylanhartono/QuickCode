@@ -1,9 +1,9 @@
 public class AirplaneRoutes {
 
     public static int solve(int days, int[] buses) {
-        // Write your answer here to solve :)
-        return 1;
+        return 1; // dummy
     }
+
     public static void main(String[] args) {
         testing();
     }
