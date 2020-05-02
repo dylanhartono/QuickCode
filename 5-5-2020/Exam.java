@@ -1,7 +1,8 @@
-import java.util.*;
-
-public class BuyMaxCars {
-    public static int solve(int[] cars, int money) {
+// import java.util.*;
+// I don't know if you need this, but if you do, uncomment it!
+public class Exam {
+    public static int solve(int rightAnswers, String me, String friend) {
+        // You can rename the variables to be something easier to remember
         return 1;
     }
 
@@ -10,9 +11,11 @@ public class BuyMaxCars {
     }
 
     public static void testing() {
-        assertequals(2, solve(new int[]{20, 90, 40, 90}, 100));
-        assertequals(3, solve(new int[]{30, 30, 10, 10}, 50));
-        assertequals(0, solve(new int[]{999, 999, 999}, 300));
+        assertequals(2, solve(2, "TTTT", "TTTT"));
+        assertequals(2, solve(3, "FTFFF", "TFTTT"));
+        assertequals(9, solve(6, "TTFTFFTFTF", "TTTTFFTTTT"));
+        assertequals(38, solve(15,"TTFTFTFTFFFTFTFTTTTFTFFFFTFTFTFTFFFTFTFTFTF", 
+                    "FTFTFTTFTFTFTFTFTFTTFTFTFTFTFTFFFFFFFFTFTFT"));
         if(flag) {
             System.out.println("Darn failed testing");
         } else {

@@ -11,21 +11,9 @@ public class Solution {
         }
         return cars.length;
     }
-
-    // Solution 3
-    public static int solve3(int[] cars, int money) {
-        Arrays.sort(cars);
-        for(int i = 0; i < cars.length; i++) {
-            money -= cars[i];
-            if(money < 0) {
-                return i - 1;
-            }
-        }
-        return cars.length - 1;
-    }
     
-    // Solution 4
-    public static int solve4(int[] cars, int money) {
+    // Solution 2
+    public static int solve2(int[] cars, int money) {
         int i = 0;
         Arrays.sort(cars);
         while(i < cars.length && money > 0) {
