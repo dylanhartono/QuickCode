@@ -1,8 +1,15 @@
 import java.util.*;
 
-public class BuyMaxCars {
+public class Solution {
     public static int solve(int[] cars, int money) {
-        return 1;
+        Arrays.sort(cars);
+        for(int i = 0; i < cars.length; i++) {
+            money -= cars[i];
+            if(money < 0) {
+                return i;
+            }
+        }
+        return cars.length;
     }
 
     // Solution 3
