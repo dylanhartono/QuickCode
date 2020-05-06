@@ -1,0 +1,95 @@
+1.
+2+
+52+-
+731---
+8942++-+
+1052+-+-
+
+2.
+private String undouble(String s) {
+    if(s.length() < 2) {
+        return s;
+    } else {
+        String sol = "";
+        if charAt(1) != charAt(0) {
+            sol += charAt(0);
+        }
+        return sol + undouble(s.substring(1));
+    }
+}
+
+3. NONONONO DON'T WANT TO DO THIS
+
+4.
+// a
+p.next.next = q;
+q = null;
+
+// b
+ListNode temp = p;
+p = q;
+q = p.next;
+p.next = temp;
+
+// c
+ListNode temp = q;
+q = p;
+p = q.next;
+q.next = temp;
+p.next = temp.next;
+q.next.next = null;
+
+// d
+ListNode temp = p;          // temp now 1
+p = q;                      // p is 2345
+q = p.next;                 // q is 345
+p.next = temp;              // p is 21
+temp = q;                   // point to 345
+q = temp.next.next;         // q to 5
+p.next.next = temp.next;    // 214 -> 5
+p.next.next.next = null;    // 214
+q.next = temp;              // 534 loop
+q.next.next = null;         // 53
+
+// 5.
+public void removeMax() {
+    if(size == 0) {
+        throw new IllegalStateException();
+    }
+    int max = Integer.MIN_VALUE; // small number
+    int maxIndex = 0;
+    for(int i = 0; i < size; i++) {
+        if(elementData[i] > max) {
+            max = elementData[i];
+            maxIndex = i;
+        }
+    }
+    for(int i = maxIndex; i < size - 1; i++) {
+        elementData[i] = elementData[i + 1];
+    }
+    size--;
+}
+
+// 6.
+public void makePalindrome(Stack<Integer> s) {
+    Queue<Integer> q = new LinkedList<>();
+    while(!s.isEmpty()) {
+        q.add(s.pop());
+    }
+    int size = q.size();
+    for(int i = 0; i < size; i++) {
+        int temp = q.remove();
+        q.add(temp);
+        s.push(temp);
+    }
+    for(int i = 0; i < size; i++) {
+        int tempS = s.pop();
+        int tempQ = q.remove();
+        if(tempS == tempQ) {
+            q.add(tempQ);
+        }
+    }
+    while(!q.isEmpty()) {
+        s.push(q.remove());
+    }
+}
