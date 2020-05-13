@@ -1,12 +1,36 @@
 // import java.util.*;
 // I don't know if you need this, but if you do, uncomment it!
-public class Exam {
+public class Solution2 {
     public static int solve(int rightAnswers, String me, String friend) {
-        // You can rename the variables to be something easier to remember
-        // hints: 
-        // you can see how many questions there are with s.length()
-        // grab an index with s.charAt(index)
-        return 1;
+        int same = 0;
+        int diff = 0;
+        for(int i = 0; i < me.length(); i++) {
+            if(me.charAt(i) == friend.charAt(i)) {
+                same++;
+            } else {
+                diff++;
+            }
+        }
+        if(rightAnswers > same) {
+            // same + (diff - rightAnswers)
+            return me.length() - rightAnswers;
+        } else {
+            return rightAnswers + diff;
+        }
+    }
+
+    public static int solve2(int rightAnswers, String me, String friend) {
+        int count = 0;
+        int compliment = me.length() - rightAnswers;
+        for(int i = 0; i < me.length(); i++) {
+            if(me.charAt(i) == friend.charAt(i) && rightAnswers > 0) {
+                rightAnswers--;
+                count++;
+            } else if(rightAnswers == 0 && me.charAt(i) == friend.charAt(i)) {
+                compliment--;
+            }
+        }
+        return count + compliment;
     }
 
     public static void main(String[] args) {
